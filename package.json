@@ -28,5 +28,8 @@
     "test": "gulp test",
     "preinstall": "npm install bower gulp",
     "postinstall": "bower install"
+  },
+  "dependencies": {
+    "bower": "^1.8.0"
   }
 }
