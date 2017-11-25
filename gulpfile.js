@@ -1,8 +1,9 @@
 var gulp = require('gulp');
 
 var karma = require('karma').server;
-var uglify = require('gulp-uglifyjs');
+var sourcemaps = require('gulp-sourcemaps');
 var runSequence = require('run-sequence');
+var uglify = require('gulp-uglify');
 
 /**
  * Run test once and exit
@@ -26,7 +27,9 @@ gulp.task('test:dev', function (done) {
 
 gulp.task('compress', function(done) {
   return gulp.src('moment-recur.js')
-    .pipe(uglify('moment-recur.min.js'))
+    .pipe(sourcemaps.init())
+    .pipe(uglify())
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest('.'))
 });
 
